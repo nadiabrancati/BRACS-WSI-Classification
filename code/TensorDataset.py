@@ -72,7 +72,7 @@ class ImageDataset(data.Dataset):
         self.level = tiles.level_count-1
         W,H=tiles.level_tiles[self.level]
         #creation of a tensor with size [in_H/patch_size, inW/patch_size] where in_H and in_W are height and width of the original image
-        ris = torch.zeros([H, W, 3, 200, 200], device=self.device)
+        ris = torch.zeros([H, W, 3, self.scale, self.scale], device=self.device)
 
         #arrangement the original images in a set of patch of size
         for w in range(W):
